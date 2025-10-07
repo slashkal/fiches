@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Pour toi ma chérie 💖</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body, html {
+      height: 100%;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #FFB6C1, #FF69B4);
+      overflow-x: hidden;
+      transition: background 1s ease;
+    }
+    .container {
+      text-align: center;
+      color: white;
+      animation: fadeIn 1.5s ease;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    h1 {
+      font-size: 3em;
+      margin-bottom: 30px;
+      text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+    }
+    a#startBtn {
+      display: inline-block;
+      padding: 15px 30px;
+      background-color: white;
+      color: #FF69B4;
+      font-weight: bold;
+      border-radius: 50px;
+      text-decoration: none;
+      font-size: 1.2em;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      cursor: pointer;
+    }
+    a#startBtn:hover {
+      transform: translateY(-5px);
+      background-color: #FFE4E1;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-50px);}
+      to { opacity: 1; transform: translateY(0);}
+    }
+
+    .slide-out {
+      animation: slideOut 0.5s forwards;
+    }
+    @keyframes slideOut {
+      to { transform: translateX(-100%); opacity: 0;}
+    }
+
+    /* Section fiches */
+    #fiches {
+      display: none;
+      padding: 20px;
+      background-color: #4D3F3F;
+      color: #333;
+      min-height: 100vh;
+    }
+
+    #fiches h1 {
+      text-align: center;
+      color: #ffffff;
+      margin-bottom: 40px;
+    }
+
+    .main-container {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .cards-container {
+      flex: 1;
+      max-width: 25%;
+    }
+
+    .card {
+      background: white;
+      padding: 15px;
+      margin-bottom: 20px;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    .card h2 {
+      margin-top: 0;
+      color: #444;
+      margin-bottom: 15px;
+      text-align: center;
+    }
+
+    .links a {
+      display: block;
+      padding: 10px 15px;
+      margin: 10px 0;
+      background-color: #e0f0ff;
+      border-left: 5px solid #0066cc;
+      border-radius: 8px;
+      text-decoration: none;
+      color: #0066cc;
+      font-weight: bold;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .links a:hover {
+      background-color: #cce0ff;
+      transform: translateX(5px);
+      box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+    }
+
+    #pdfViewer {
+      width: 70%;
+      height: 1500px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      background-color: white;
+    }
+
+    @media (max-width: 900px) {
+      .main-container {
+        flex-direction: column;
+      }
+      .cards-container, #pdfViewer {
+        max-width: 100%;
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- PAGE D’ACCUEIL -->
+  <div class="container" id="home">
+    <h1>Pour toi ma chérie 💖</h1>
+    <a id="startBtn">Voir les fiches</a>
+  </div>
+
+  <!-- PAGE FICHES -->
+  <div id="fiches">
+    <h1>📚 Fiches et Exercices</h1>
+    <div class="main-container">
+      <div class="cards-container">
+        <div class="card">
+          <h2>Biologie végétale</h2>
+          <div class="links">
+            <a href="#" onclick="ouvrirPDF('https://youtu.be/dQw4w9WgXcQ')">🎥 Vidéo explicative</a>
+            <a href="#" onclick="ouvrirPDF('https://exemple.com/exercice1.pdf')">📄 Exercice 1</a>
+            <a href="#" onclick="ouvrirPDF('https://exemple.com/cours1.pdf')">📘 Fiche de cours</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <h2>Biologie animale</h2>
+          <div class="links">
+            <a href="#" onclick="ouvrirPDF('https://exemple.com/video2')">🎥 Vidéo</a>
+            <a href="#" onclick="ouvrirPDF('https://exemple.com/exercice2.pdf')">📄 Exercices</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <h2>Biologie cellulaire</h2>
+          <div class="links">
+            <a href="#" onclick="ouvrirPDF('https://cours-galien.fr/wp-content/uploads/2021/09/Grenoble-Bio-Cell.pdf')">📄 Cours PDF</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <h2>Bioinformatique</h2>
+          <div class="links">
+            <a href="#" onclick="ouvrirPDF('file:///C:/Users/ewenp/Downloads/DEV%20A-sujet2018-15%20(1).pdf')">📄 Annale entraînement</a>
+            <a href="#" onclick="ouvrirPDF('https://moodle2025.uca.fr/pluginfile.php/122418/mod_resource/content/1/Developpement%20animal%20polycop%202024-2025.pdf')">📄 Schéma gastrulation et clivage</a>
+          </div>
+        </div>
+      </div>
+
+      <iframe id="pdfViewer" src=""></iframe>
+    </div>
+  </div>
+
+  <script>
+    const startBtn = document.getElementById('startBtn');
+    const home = document.getElementById('home');
+    const fiches = document.getElementById('fiches');
+
+    startBtn.addEventListener('click', function() {
+      home.classList.add('slide-out');
+      setTimeout(() => {
+        home.style.display = 'none';
+        fiches.style.display = 'block';
+        document.body.style.background = '#4D3F3F';
+        window.scrollTo(0, 0);
+      }, 500);
+    });
+
+    function ouvrirPDF(url){
+      const iframe = document.getElementById('pdfViewer');
+      iframe.src = url;
+      window.scrollTo(0, 0);
+    }
+  </script>
+</body>
+</html>
