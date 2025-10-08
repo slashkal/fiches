@@ -193,8 +193,12 @@
     </div>
   </div>
 
-  <script>
-    <script>
+  ✅ Solution fiable : attendre que la page soit prête
+
+👉 Copie-colle ce nouveau script complet, à la place de ton <script>...</script> actuel :
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
   const startBtn = document.getElementById('startBtn');
   const home = document.getElementById('home');
   const fiches = document.getElementById('fiches');
@@ -212,7 +216,7 @@
   });
 
   // Fonction pour ouvrir un PDF ou une vidéo
-  function ouvrirPDF(url) {
+  window.ouvrirPDF = function(url) {
     if (url.endsWith('.pdf')) {
       // Afficher le PDF dans l’iframe via Google Docs Viewer
       iframe.src = `https://docs.google.com/gview?url=${encodeURIComponent(url)}&embedded=true`;
@@ -221,11 +225,11 @@
       window.open(url, '_blank');
     }
     window.scrollTo(0, 0);
-  }
+  };
+});
 </script>
-
-  </script>
 </body>
 </html>
+
 
 
