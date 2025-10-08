@@ -154,6 +154,7 @@
   <!-- PAGE FICHES -->
   <div id="fiches">
     <h1>📚 Fiche pour révisions 📚</h1>
+
     <div class="main-container">
       <div class="cards-container">
         <div class="card">
@@ -187,62 +188,53 @@
             <a href="#" onclick="ouvrirPDF('https://raw.githubusercontent.com/slashkal/fiches/main/Developpement%20animal%20polycop%202024-2025.pdf')">📄 Schéma gastrulation et clivage</a>
           </div>
         </div>
+
         <div class="card">
-          <h2>📚MicroBiologie</h2>
+          <h2>📚 MicroBiologie 📚</h2>
           <div class="links">
-            <a href="#" onclick="ouvirPDF('')"> Annale entrainement</a>
-            <a href="#" onclick="ouvirPDF('')"> fiches</a>
-            <a href="#" onclick="ouvirPDF('')"> exercices</a>
-            <a href="#" onclick="ouvirPDF('')"> correction exercice </a>
+            <a href="#" onclick="ouvrirPDF('')">Annale entraînement</a>
+            <a href="#" onclick="ouvrirPDF('')">Fiches</a>
+            <a href="#" onclick="ouvrirPDF('')">Exercices</a>
+            <a href="#" onclick="ouvrirPDF('')">Correction exercice</a>
           </div>
         </div>
-      
-            
+      </div>
+    </div>
+
+    <!-- ✅ Iframe déplacé ici -->
+    <div style="display: flex; justify-content: center; margin-top: 30px;">
       <iframe id="pdfViewer" src=""></iframe>
     </div>
   </div>
 
-  ✅ Solution fiable : attendre que la page soit prête
+  <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const startBtn = document.getElementById('startBtn');
+    const home = document.getElementById('home');
+    const fiches = document.getElementById('fiches');
+    const iframe = document.getElementById('pdfViewer');
 
-👉 Copie-colle ce nouveau script complet, à la place de ton <script>...</script> actuel :
+    // Transition vers les fiches
+    startBtn.addEventListener('click', function() {
+      home.classList.add('slide-out');
+      setTimeout(() => {
+        home.style.display = 'none';
+        fiches.style.display = 'block';
+        document.body.style.background = '#4D3F3F';
+        window.scrollTo(0, 0);
+      }, 500);
+    });
 
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-  const startBtn = document.getElementById('startBtn');
-  const home = document.getElementById('home');
-  const fiches = document.getElementById('fiches');
-  const iframe = document.getElementById('pdfViewer');
-
-  // Transition vers les fiches
-  startBtn.addEventListener('click', function() {
-    home.classList.add('slide-out');
-    setTimeout(() => {
-      home.style.display = 'none';
-      fiches.style.display = 'block';
-      document.body.style.background = '#4D3F3F';
+    // Fonction pour ouvrir un PDF ou une vidéo
+    window.ouvrirPDF = function(url) {
+      if (url.endsWith('.pdf')) {
+        iframe.src = `https://docs.google.com/gview?url=${encodeURIComponent(url)}&embedded=true`;
+      } else {
+        window.open(url, '_blank');
+      }
       window.scrollTo(0, 0);
-    }, 500);
+    };
   });
-
-  // Fonction pour ouvrir un PDF ou une vidéo
-  window.ouvrirPDF = function(url) {
-    if (url.endsWith('.pdf')) {
-      // Afficher le PDF dans l’iframe via Google Docs Viewer
-      iframe.src = `https://docs.google.com/gview?url=${encodeURIComponent(url)}&embedded=true`;
-    } else {
-      // Ouvrir tout autre lien (vidéo, site...) dans un nouvel onglet
-      window.open(url, '_blank');
-    }
-    window.scrollTo(0, 0);
-  };
-});
-</script>
+  </script>
 </body>
 </html>
-
-
-
-
-
-
-
