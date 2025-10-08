@@ -194,33 +194,38 @@
   </div>
 
   <script>
-    const startBtn = document.getElementById('startBtn');
-    const home = document.getElementById('home');
-    const fiches = document.getElementById('fiches');
+    <script>
+  const startBtn = document.getElementById('startBtn');
+  const home = document.getElementById('home');
+  const fiches = document.getElementById('fiches');
+  const iframe = document.getElementById('pdfViewer');
 
-    startBtn.addEventListener('click', function() {
-      home.classList.add('slide-out');
-      setTimeout(() => {
-        home.style.display = 'none';
-        fiches.style.display = 'block';
-        document.body.style.background = '#4D3F3F';
-        window.scrollTo(0, 0);
-      }, 500);
-    });
+  // Transition vers les fiches
+  startBtn.addEventListener('click', function() {
+    home.classList.add('slide-out');
+    setTimeout(() => {
+      home.style.display = 'none';
+      fiches.style.display = 'block';
+      document.body.style.background = '#4D3F3F';
+      window.scrollTo(0, 0);
+    }, 500);
+  });
 
-    function ouvrirPDF(url){
-      const iframe = document.getElementById('pdfViewer');
-      iframe.src = const iframe = document.getElementById('pdfViewer');
-      iframe.src = urlif (url.endsWith('.pdf')) {
-  iframe.src = `https://docs.google.com/gview?url=${encodeURIComponent(url)}&embedded=true`;
-} else {
-  // Pour les vidéos ou autres liens
-  window.open(url, '_blank');;
-      window.scrollTo(0, 0);
-    };
-      window.scrollTo(0, 0);
+  // Fonction pour ouvrir un PDF ou une vidéo
+  function ouvrirPDF(url) {
+    if (url.endsWith('.pdf')) {
+      // Afficher le PDF dans l’iframe via Google Docs Viewer
+      iframe.src = `https://docs.google.com/gview?url=${encodeURIComponent(url)}&embedded=true`;
+    } else {
+      // Ouvrir tout autre lien (vidéo, site...) dans un nouvel onglet
+      window.open(url, '_blank');
     }
+    window.scrollTo(0, 0);
+  }
+</script>
+
   </script>
 </body>
 </html>
+
 
