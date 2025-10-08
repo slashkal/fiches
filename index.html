@@ -210,9 +210,17 @@
 
     function ouvrirPDF(url){
       const iframe = document.getElementById('pdfViewer');
-      iframe.src = url;
+      iframe.src = const iframe = document.getElementById('pdfViewer');
+      iframe.src = urlif (url.endsWith('.pdf')) {
+  iframe.src = `https://docs.google.com/gview?url=${encodeURIComponent(url)}&embedded=true`;
+} else {
+  // Pour les vidéos ou autres liens
+  window.open(url, '_blank');;
+      window.scrollTo(0, 0);
+    };
       window.scrollTo(0, 0);
     }
   </script>
 </body>
 </html>
+
