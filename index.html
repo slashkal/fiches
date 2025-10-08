@@ -81,11 +81,12 @@
       align-items: flex-start;
       justify-content: space-between;
       gap: 20px;
+      flex-wrap: nowrap;
     }
 
     .cards-container {
-      flex: 1;
-      max-width: 25%;
+      flex: 0 0 30%;
+      max-width: 30%;
     }
 
     .card {
@@ -124,7 +125,7 @@
     }
 
     #pdfViewer {
-      width: 55%;
+      width: 95%;
       height: 1500px;
       border: 1px solid #ccc;
       border-radius: 10px;
@@ -156,6 +157,7 @@
     <h1>📚 Fiche pour révisions 📚</h1>
 
     <div class="main-container">
+      <!-- Colonne de gauche = les cartes -->
       <div class="cards-container">
         <div class="card">
           <h2>📚 Biologie végétale 📚</h2>
@@ -199,14 +201,15 @@
           </div>
         </div>
       </div>
-    </div>
 
-    <!-- ✅ Iframe déplacé ici -->
-    <div style="display: flex; justify-content: center; margin-top: 30px;">
-      <iframe id="pdfViewer" src=""></iframe>
+      <!-- Colonne de droite = le viewer -->
+      <div style="flex: 1; display: flex; justify-content: center;">
+        <iframe id="pdfViewer" src=""></iframe>
+      </div>
     </div>
   </div>
 
+  <!-- SCRIPT -->
   <script>
   document.addEventListener("DOMContentLoaded", () => {
     const startBtn = document.getElementById('startBtn');
